@@ -1,0 +1,38 @@
+Explanation for Project: Show Me the Data Structures
+====================================================
+
+
+1. Problem 1: LRU Cache
+   ---------------------
+The requirement is Problem 1 is that all operations must take O(1) time.
+So, I use hashtable for fast looking up and dual linked list to quick add/remove nodes. 
+
+
+2. Problem 2: File Recursion
+   -------------------------
+I apply recursion in Problem 2, and time complexity of the worst case is O(h*n)
+
+
+3. Problem 3: Huffman Coding
+   -------------------------
+In this problem, I use dictionary to store frequency of character as well binary code assigned.
+I use to tuple and list for buiding huffman tree.
+With built-in function sorting, time complexity of the worst case in Timsort is O(nlog(n))
+
+4. Problem 4: Active Directory
+   ---------------------------
+I apply recursion in Problem 2, and time complexity of the worst case is O(h*n)
+
+
+5. Problem 5: Blockchain
+   ---------------------
+I use linked list in Problem 5 and time complexity of the worst case is O(n)
+
+
+6. Problem 6: Union and Intersection
+   ---------------------------------
+Linked list is use in this problem. 
+The time complexity here would be O(n^2) because of the while loop and the nested 'if in' type of conditionals in its body.In worst-case, the if conditionals would have to traverse the whole list to check if there is a match.
+
+
+ 
