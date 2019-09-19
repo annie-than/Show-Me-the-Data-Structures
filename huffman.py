@@ -26,6 +26,8 @@ class Huffman:
     def huffman_tree(self):
         # Built the huffman tree
         tuples = self.freq_sort()
+        if len(tuples) == 1:
+            tuples.append((0, '\0'))
         while len(tuples) > 1:
             least_use_02 = tuple(tuples[0:2])
             remaining = tuples[2:]
@@ -47,6 +49,7 @@ def huffman_code(node, pat=''):
     # Assign binary code to characters(leaves)
     # It gets parameter node from huffman_trim
     global codes
+
     if type(node) == type(""):
         codes[node] = pat
     else:
@@ -68,7 +71,6 @@ def huffman_decoding(data, tree):
     # Decode the text from its compressed form
     output = ""
     p = tree
-    print(p)
     for bit in data:
         if bit == '0':
             p = p[1][0]
@@ -82,21 +84,34 @@ def huffman_decoding(data, tree):
 
 if __name__ == "__main__":
     codes = {}
+    a = int(input("Choose Test case #: "))
+    if a == 1:
+        a_great_sentence = "The bird is the word"
+    elif a == 2:
+        a_great_sentence = "AAAAAA"
+    elif a == 3:
+        a_great_sentence = ""
 
-    a_great_sentence = "The bird is the word"
+    if len(a_great_sentence) == 0:
+        print("No data to encode")
 
-    print("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
-    print("The content of the data is: {}\n".format(a_great_sentence))
-    Huffman = Huffman(a_great_sentence)
-    tree = Huffman.huffman_tree()
-    trim_tree = Huffman.huffman_trim(tree)
-    codes = huffman_code(trim_tree)
-    encoded_data = huffman_encoding(a_great_sentence)
+    else:
+        print("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
+        print("The content of the data is: {}\n".format(a_great_sentence))
 
-    print("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
-    print("The content of the encoded data is: {}\n".format(encoded_data))
+        Huffman = Huffman(a_great_sentence)
+        tree = Huffman.huffman_tree()
+        trim_tree = Huffman.huffman_trim(tree)
+        codes = huffman_code(trim_tree)
 
-    decoded_data = huffman_decoding(encoded_data, tree)
+        encoded_data = huffman_encoding(a_great_sentence)
+        print("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+        print("The content of the encoded data is: {}\n".format(encoded_data))
 
-    print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
-    print("The content of the encoded data is: {}\n".format(decoded_data))
+        decoded_data = huffman_decoding(encoded_data, tree)
+        print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+        print("The content of the decoded data is: {}\n".format(decoded_data))
+
+
+
+

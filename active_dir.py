@@ -22,6 +22,8 @@ class Group:
 
 
 parent = Group("parent")
+parent_user = "parent_user"
+parent.add_user(parent_user)
 child = Group("child")
 sub_child = Group("sub_child")
 
@@ -33,7 +35,6 @@ parent.add_group(child)
 
 
 def is_user_in_group(user, group):
-  
     if isinstance(group, Group):
         if user in group.get_users():
             return True
@@ -45,8 +46,20 @@ def is_user_in_group(user, group):
                     return is_user_in_group(user, group_item)
 
     else:
-        print(f"{group} is not a group")
+        return f"{group} is not a group"
 
 
-print(is_user_in_group(sub_child_user, parent))
+# Test case #1
+print("\nTest case #1")
+print(is_user_in_group(sub_child_user, parent))     # Should return True
+
+
+# Test case #2
+print("\nTest case #2")
+print(is_user_in_group(parent_user, child))     # Should return False
+
+
+# Test case #3
+print("\nTest case #3")
+print(is_user_in_group(sub_child_user, parent_user))     # Should return "parents is not a group"
 

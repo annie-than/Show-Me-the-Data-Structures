@@ -12,7 +12,24 @@ def find_files(suffix, path):
                 find_files(suffix, item_path)
             else:
                 continue
+    else:
+        print("This path doesn't exist")
 
 
-find_files(".c", "./testdir")
+# Test case 1
+suffix, path = ".c", "./testdir"
+print("\nThe files with suffix {} in path {}:".format(suffix, path))
+find_files(suffix, path)
+
+# Test case 2
+suffix, path = ".m", "./testdir"
+print("\nThe files with suffix {} in path {}:".format(suffix, path))
+find_files(suffix, path)
+
+# Test case 3
+suffix, path = ".c", "./test"
+print("\nThe files with suffix {} in path {}:".format(suffix, path))
+find_files(suffix, path)
+
+
 

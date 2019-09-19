@@ -111,9 +111,9 @@ for i in element_1:
 for i in element_2:
     linked_list_2.append(i)
 
-
-print(union(linked_list_1, linked_list_2))
 print(intersection(linked_list_1, linked_list_2))
+print(union(linked_list_1, linked_list_2))
+
 
 
 # Test case 2

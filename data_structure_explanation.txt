@@ -7,26 +7,43 @@ Explanation for Project: Show Me the Data Structures
 The requirement is Problem 1 is that all operations must take O(1) time.
 So, I use hashtable for fast looking up and dual linked list to quick add/remove nodes. 
 
+- Get function: It first looks up "key" in the hashtable to find node, and time complexity of this operation is O(1). Then, it remove/add node in the doubly linked list, and the time complexity of this operation is also O(1). That's why these operations take O(1) time.
+
+- Set function. It works the same way, so also taking O(1) time.
+
+Space complexity in this problem is O(1), due to no loop function used. 
+
 
 2. Problem 2: File Recursion
    -------------------------
 I apply recursion in Problem 2, and time complexity of the worst case is O(h*n)
+In this problem, n implies the length of input (in this case => my_list). Each operation will take O(h) time to run where h is the length of input of recursion calls.
+
+Space complexity in this problem is also O(h*n), because functions and variables are executed and created in loop for and recursion call.
 
 
 3. Problem 3: Huffman Coding
    -------------------------
 In this problem, I use dictionary to store frequency of character as well binary code assigned.
 I use to tuple and list for buiding huffman tree.
-With built-in function sorting, time complexity of the worst case in Timsort is O(nlog(n))
+With built-in function sorting, time complexity of the worst case in Timsort is O(nlog(n)).
+
+Space complexity with built-in function sorting in this problem is O(n)
+
 
 4. Problem 4: Active Directory
    ---------------------------
-I apply recursion in Problem 2, and time complexity of the worst case is O(h*n)
+Recursion is applied to this problem, and time complexity of the worst case is O(h*n)
+- n implies the length of input (in this case => group.get_groups()). In each recursion call, it will check again user, call len() function and go to the sub group; so it will take O(h) time to execute.
 
+- Space complexity in this problem is also O(h*n), because functions and variables are executed and created in loop for and recursion call.
 
 5. Problem 5: Blockchain
    ---------------------
 I use linked list in Problem 5 and time complexity of the worst case is O(n)
+In add_block() and print_chain(), it will take all the length of chain (length = n) to be done in the worst case, so time complexity is O(n)
+
+Space complexity in this problem is also O(n), because functions and variables are executed and created in while loop.
 
 
 6. Problem 6: Union and Intersection
@@ -34,5 +51,7 @@ I use linked list in Problem 5 and time complexity of the worst case is O(n)
 Linked list is use in this problem. 
 The time complexity here would be O(n^2) because of the while loop and the nested 'if in' type of conditionals in its body.In worst-case, the if conditionals would have to traverse the whole list to check if there is a match.
 
+I use the same alogrithm for both union and intersec, so they both have O(n^2). 
+Space complexity in this problem is also O(n^2), because functions and variables are executed and created in while loop and the nested 'if in' type of conditionals .
 
  
