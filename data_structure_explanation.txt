@@ -11,47 +11,55 @@ So, I use hashtable for fast looking up and dual linked list to quick add/remove
 
 - Set function. It works the same way, so also taking O(1) time.
 
-Space complexity in this problem is O(1), due to no loop function used. 
+For space complexity, it would depend on the capacity of the cache. This is because the number of elements in the hashtable is not constant and in worst-case would be equal to the capacity of the cache. So it should be O(n) where 'n' is the capacity of the cache.
 
 
 2. Problem 2: File Recursion
    -------------------------
-I apply recursion in Problem 2, and time complexity of the worst case is O(h*n)
-In this problem, n implies the length of input (in this case => my_list). Each operation will take O(h) time to run where h is the length of input of recursion calls.
+I apply recursion in Problem 2, and time complexity of the worst case is O(h*n).
+The design is as a tree data struture. Files act as leaves and directories act as internal nodes. The algorithm basically traverses the entire tree. 
+In this problem, n implies the length of input or  (in this case => my_list). Each operation will take O(h) time to run where h is the length of input of recursion calls.
 
-Space complexity in this problem is also O(h*n), because functions and variables are executed and created in loop for and recursion call.
+Space complexity in this problem is also O(h*n). I call "n" as the length of input (in this case => my_list). In each item of the for loop, the algorithm uses a fixed (small) amount of space for assignment or calling print function; so it would take O(n) space in the best case. However, in the worst case, the algorithm call recursion and it did the same for sub-directories and take O(h) space. That's why space complexity in this problem is O(h*n)
 
 
 3. Problem 3: Huffman Coding
    -------------------------
 In this problem, I use dictionary to store frequency of character as well binary code assigned.
 I use to tuple and list for buiding huffman tree.
-With built-in function sorting, time complexity of the worst case in Timsort is O(nlog(n)).
 
-Space complexity with built-in function sorting in this problem is O(n)
+- Encoding:
+In this function, it gets codes from "huffman_code" function that call back to "huffman_trim", "huffman_tree", "freq_sort", "freq_dict" function. In these functions, they use for loop, while loop and sorting. Time complexity of the worst case in Timsort is O(nlog(n)).
+
+Space complexity with built-in function sorting in this problem is O(n). Because in the worst case, it takes n fixed (small) amount space for assigment, operations.
+
+- Decoding:
+In this function, it needs a tree from "huffman_tree" which calls back to "freq_sort", "freq_dict" function. In these functions, they use for loop, while loop and sorting. Time complexity of the worst case in Timsort is O(nlog(n)).
+
+Space complexity with built-in function sorting in this problem is O(n). Because in the worst case, it takes n fixed (small) amount space for assigment, operations.
+
 
 
 4. Problem 4: Active Directory
    ---------------------------
-Recursion is applied to this problem, and time complexity of the worst case is O(h*n)
-- n implies the length of input (in this case => group.get_groups()). In each recursion call, it will check again user, call len() function and go to the sub group; so it will take O(h) time to execute.
+The design is as a tree data struture. Users act as leaves and groups act as internal nodes. The algorithm basically traverses the tree. we are visiting nodes and stop the traversal if a match is found. In the worst case, all the nodes are visited. So n implies the length of input (in this case => group.get_groups()). In each recursion call, it will check again user, call len() function and go to the sub group; so it will take O(h) time to execute.
+Therefore, time complexity of the worst case is O(h*n).
 
-- Space complexity in this problem is also O(h*n), because functions and variables are executed and created in loop for and recursion call.
+
+In the best case, if user a match is found in the first checking condition, space complexity will be O(1). In the worst case, this algorithm will traverses the entire tree, so the call stack would take (n * h) amount of space. Therefore, space complexity of the worst case is O(h*n).
 
 5. Problem 5: Blockchain
    ---------------------
 I use linked list in Problem 5 and time complexity of the worst case is O(n)
-In add_block() and print_chain(), it will take all the length of chain (length = n) to be done in the worst case, so time complexity is O(n)
+In add_block() and print_chain(), it will take all the length of chain (length = n) to be done in the worst case, so time complexity is O(n).
 
-Space complexity in this problem is also O(n), because functions and variables are executed and created in while loop.
+In the worst case, it will need to go through all the length of the linked list to check whether the node is the end of the linked list (while node.next: node = node.next) , so we can add it to. So space complexity is O(n). 
 
 
 6. Problem 6: Union and Intersection
    ---------------------------------
-Linked list is use in this problem. 
-The time complexity here would be O(n^2) because of the while loop and the nested 'if in' type of conditionals in its body.In worst-case, the if conditionals would have to traverse the whole list to check if there is a match.
+Linked list is use in this problem. In the worst case, it needs to go all along the linked list, so the time complexity here would be O(n). I use the same alogrithm for both union and intersec, so they both have O(n). 
 
-I use the same alogrithm for both union and intersec, so they both have O(n^2). 
-Space complexity in this problem is also O(n^2), because functions and variables are executed and created in while loop and the nested 'if in' type of conditionals .
+Space complexity for both union and intersec in this problem are also O(n). Because in the worst case, it takes n fixed (small) amount space for assigment, operations.
 
  
