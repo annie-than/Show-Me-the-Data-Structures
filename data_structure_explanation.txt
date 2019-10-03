@@ -31,13 +31,12 @@ I use to tuple and list for buiding huffman tree.
 - Encoding:
 In this function, it gets codes from "huffman_code" function that call back to "huffman_trim", "huffman_tree", "freq_sort", "freq_dict" function. In these functions, they use for loop, while loop and sorting. Time complexity of the worst case in Timsort is O(nlog(n)).
 
-Space complexity with built-in function sorting in this problem is O(n). Because in the worst case, it takes n fixed (small) amount space for assigment, operations.
+For encoding- the space is occupied mainly by the number of unique characters for the encoding function because the frequency dictionary has the size of that of number of unique characters. So the space complexity should be O(n), where 'n' is the number of unique characters in input string.
 
 - Decoding:
 In this function, it needs a tree from "huffman_tree" which calls back to "freq_sort", "freq_dict" function. In these functions, they use for loop, while loop and sorting. Time complexity of the worst case in Timsort is O(nlog(n)).
 
-Space complexity with built-in function sorting in this problem is O(n). Because in the worst case, it takes n fixed (small) amount space for assigment, operations.
-
+For decoding- the space complexity in worst-case will be equal to the total number of characters in the input string because it is what's formed here and returned. So the space complexity should be O(n), where 'n' is the total number of characters in input string.
 
 
 4. Problem 4: Active Directory
@@ -53,13 +52,15 @@ In the best case, if user a match is found in the first checking condition, spac
 I use linked list in Problem 5 and time complexity of the worst case is O(n)
 In add_block() and print_chain(), it will take all the length of chain (length = n) to be done in the worst case, so time complexity is O(n).
 
-In the worst case, it will need to go through all the length of the linked list to check whether the node is the end of the linked list (while node.next: node = node.next) , so we can add it to. So space complexity is O(n). 
+The space complexity depends on the number of blocks in the block chain because for each block a new node is created. So it will be O(n) where 'n' represents the size of the block chain or in other words, the number of blocks in the block chain.
 
 
 6. Problem 6: Union and Intersection
    ---------------------------------
 Linked list is use in this problem. In the worst case, it needs to go all along the linked list, so the time complexity here would be O(n). I use the same alogrithm for both union and intersec, so they both have O(n). 
 
-Space complexity for both union and intersec in this problem are also O(n). Because in the worst case, it takes n fixed (small) amount space for assigment, operations.
+Space complexity for both union and intersec in this problem are also O(n). 
+For union- 'n' would mean the total number of elements in the two linked lists combined in worst-case.
+For intersection- 'n' would mean the total number of elements in the shorter linked list because the worst-case would be when one of the lists would be a sublist of the other.
 
  
